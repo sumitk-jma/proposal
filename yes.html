@@ -4,6 +4,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+    <script>
+
+        function random_bg_color() {
+            var x = Math.floor(Math.random() * 256);
+            var y = Math.floor(Math.random() * 256);
+            var z = Math.floor(Math.random() * 256);
+            var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+         console.log(bgColor);
+          
+            document.body.style.background = bgColor;
+            }
+        
+            let bgColor = random_bg_color();
+            </script>
+        
+            <style>
+        
+                body { background-color : bgColor;
+
+            }
+            </style>
+
     <div class="container">
       <div>
         <h1 class="header_text">Yeeyy ! Finally</h1>
