@@ -20,11 +20,6 @@ if(isTouchSupported()){
   init();
 }
 
-
- 
-
-// when animating on canvas, it is best to use requestAnimationFrame instead of setTimeout or setInterval
-// not supported in all browsers though and sometimes needs a prefix, so we need a shim
 window.requestAnimFrame = ( function() {
   return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
@@ -34,7 +29,6 @@ window.requestAnimFrame = ( function() {
         };
 })();
 
-// now we will setup our basic variables for the demo
 var canvas = document.getElementById( 'canvas' ),
     ctx = canvas.getContext( '2d' ),
     // full screen dimensions
@@ -58,7 +52,6 @@ var canvas = document.getElementById( 'canvas' ),
     // mouse y coordinate
     my;
     
-// set canvas dimensions
 canvas.width = cw;
 canvas.height = ch;
 
@@ -226,9 +219,7 @@ function loop() {
   
   // increase the hue to get different colored fireworks over time
   hue += 0.5;
-  
-  // normally, clearRect() would be used to clear the canvas
-  // we want to create a trailing effect though
+    // we want to create a trailing effect though
   // setting the composite operation to destination-out will allow us to clear the canvas at a specific opacity, rather than wiping it entirely
   ctx.globalCompositeOperation = 'destination-out';
   // decrease the alpha property to create more prominent trails
@@ -295,10 +286,6 @@ canvas.addEventListener( 'mouseup', function( e ) {
 
 // once the window loads, we are ready for some fireworks!
 window.onload = loop;
- 
-
-
-//this code comes from: httsp://myprograming.com/ 
  
 function getUrlVars() {
 var vars = {};

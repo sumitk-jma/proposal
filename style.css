@@ -98,3 +98,7 @@ body {
     position: absolute;
     z-index: 1;
 }
+
+#Message {
+    display: none;
+}
