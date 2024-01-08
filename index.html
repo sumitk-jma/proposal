@@ -27,7 +27,7 @@ function random_bg_color() {
     </style>
     <div class="container">
       <div>
-        <h1 class="header_text">Khushi, will you be my Girlfriend?</h1>
+        <h1 class="header_text">Khushi, can you give me another chance?</h1>
       </div>
       <div class="gif_container">
         <img
@@ -39,10 +39,7 @@ function random_bg_color() {
         <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
         <button
           class="btn"
-          id="noButton"
-          onmouseover="moveButton()"
-          onclick="moveButton()"
-        >
+          id="noButton">
           No
         </button>
 
@@ -51,8 +48,13 @@ function random_bg_color() {
             window.location.href = "yes.html";
           }
 
-          function moveButton() {
-            var x =
+          var moveCount = 0;
+
+function moveButton() {
+
+    if (moveCount < 4)
+       
+        var x =
               Math.random() *
               (window.innerWidth -
                 document.getElementById("noButton").offsetWidth);
@@ -62,7 +64,26 @@ function random_bg_color() {
                 document.getElementById("noButton").offsetHeight);
             document.getElementById("noButton").style.left = `${x}px`;
             document.getElementById("noButton").style.top = `${y}px`;
-          }
+
+        moveCount++;
+
+        if (moveCount >= 4) {
+            
+            document.getElementById("noButton").removeEventListener("click", moveButton);
+            document.getElementById("noButton").removeEventListener("mouseover", moveButton);
+            document.getElementById("noButton").addEventListener("click", nextPage2);
+        }
+    }
+
+function nextPage2() {
+    window.location.href = "no-msg.html";
+}
+
+    var noButton = document.getElementById("noButton");
+    noButton.addEventListener("click", moveButton);
+    noButton.addEventListener("mouseover", moveButton);
+
+
         </script>
       </div>
     </div>
